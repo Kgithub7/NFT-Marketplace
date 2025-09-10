@@ -13682,11 +13682,13 @@ a.read_more i {
 }
 
 .nft__item img {
-  width: 100%;
+  width: 90%;
   height: auto !important;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+  max-height: 300px;
+  margin: 0 auto;
 }
 
 .nft__item .author_list_pp {
@@ -15443,7 +15445,9 @@ img {
 }
 
 .slider-container{
- padding: 0 12px;
+ margin: 0 4px;
+ max-width: 100%;
+ margin: 0 auto;
 }
 
 .slick-slide {
@@ -15458,6 +15462,7 @@ img {
   opacity: 1;
   z-index: 1;
   transition: all 0.2s ease-in-out;
+  line-height: 0;
 }
 
 .slick-prev:hover::before,
@@ -15471,13 +15476,23 @@ img {
 
 .slick-next::before {
   content: "»";
+  right: 0;
 }
 
-.slick-prev
+.slick-prev,
 .slick-next {
   display: none;
   z-index: 1;
-  padding: 20px;
+}
+
+.slick-next{
+  right: -24px;
+  margin-right: 4px;
+}
+
+.slick-prev{
+  left: -24px;
+  margin-left: 4px;
 }
 
 /* ================================================== */
@@ -16748,6 +16763,42 @@ img {
 .skeleton-box-hotCollectionCode{
 width: 60px;
  height: 20px;
+}
+
+.skeleton-box-newItemProfilePic{
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.skeleton-box-newItemCountdown{
+  height: 30px;
+  width: 100px;
+  float: right;
+  right: 0;
+  border-radius: 40px;
+  border: none;
+}
+
+.skeleton-box-newItemWrap{
+  height: 300px;
+}
+
+.skeleton-box-newItemTitle{
+ width: 120px;
+ height: 20px;
+ display: block;
+ margin-bottom: 8px;
+}
+
+.skeleton-box-newItemPrice{
+width: 60px;
+ height: 20px;
+}
+
+.skeleton-box-newItemLike{
+width: 40px;
+ height: 15px;
 }
 
 .nft-image {
