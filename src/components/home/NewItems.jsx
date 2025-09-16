@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Slider from "react-slick";
+import Timer from "../UI/Timer";
 
 const NewItems = () => {
   const settings = {
@@ -85,9 +86,8 @@ const NewItems = () => {
                             />
                             <i className="fa fa-check"></i>
                           </Link>
-                        </div>
-                        <div className="de_countdown">5h 30m 32s</div>
-
+                      </div>
+                      <Timer />
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
