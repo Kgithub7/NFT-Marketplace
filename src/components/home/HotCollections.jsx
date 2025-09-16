@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 const HotCollections = () => {
   const settings = {
