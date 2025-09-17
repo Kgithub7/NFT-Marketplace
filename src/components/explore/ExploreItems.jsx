@@ -60,7 +60,7 @@ const ExploreItems = () => {
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
               style={{ display: "block", backgroundSize: "cover" }}
             >
-              <Skeleton height={400} borderRadius={15} />
+              <Skeleton width={"100%"} height={400} borderRadius={15} />
             </div>
           ))
         : exploreItems.slice(0, numOfItems).map((exploreItem, index) => (
@@ -75,7 +75,6 @@ const ExploreItems = () => {
       {!loading && (
         <div className="col-md-12 text-center">
           <button
-            to=""
             id="loadmore"
             className="btn-main lead"
             onClick={() => {

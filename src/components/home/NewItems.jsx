@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
-import Timer from "../UI/Timer";
 import Item from "../UI/Item";
 
 const NewItems = () => {
@@ -69,7 +68,7 @@ const NewItems = () => {
                   ))
                 : newItems.map((newItem, index) => (
                     <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                      <Item item={newItem} />
+                      <Item item={newItem} key={index} />
                     </div>
                   ))}
             </Slider>
