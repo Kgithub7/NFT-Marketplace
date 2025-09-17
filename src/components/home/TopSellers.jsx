@@ -33,7 +33,7 @@ const TopSellers = () => {
                 ? new Array(12).fill().map((_, index) => (
                     <li key={index}>
                       <div className="author_list_pp ">
-                        <Skeleton height={50} maxWidth={50} borderRadius={50} />
+                        <Skeleton height={50} maxWidth={50} borderRadius={"50%"} />
                       </div>
                       <div className="author_list_info">
                         <Skeleton height={20} maxWidth={100} />

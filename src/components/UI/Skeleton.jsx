@@ -1,10 +1,9 @@
-const Skeleton = ({ maxWidth, height, borderRadius }) => {
+const Skeleton = ({ width, height, borderRadius }) => {
   return (
     <div
       className="skeleton-box"
       style={{
-        width: "100%",
-        maxWidth,
+        width,
         height,
         borderRadius,
       }}

@@ -1,17 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Skeleton from "../components/UI/Skeleton";
 
 const Author = () => {
-
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-  
   const { authorId } = useParams();
-  
+  const [author, setAuthor] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [followers, setFollowers] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const fetchAuthor = async () => {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
+      );
+      setAuthor(data);
+
+      setLoading(false);
+    };
+    fetchAuthor();
+  }, []);
+
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -24,45 +35,118 @@ const Author = () => {
           data-bgimage="url(images/author_banner.jpg) top"
           style={{ background: `url(${AuthorBanner}) top` }}
         ></section>
-
         <section aria-label="section">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="d_profile de-flex">
-                  <div className="de-flex-col">
-                    <div className="profile_avatar">
-                      <img src={AuthorImage} alt="" />
+                {loading ? (
+                  <>
+                    <div className="d_profile de-flex">
+                      <div className="de-flex-col">
+                        <div className="profile_avatar">
+                          <Skeleton
+                            width={150}
+                            height={150}
+                            borderRadius={"50%"}
+                          />
+                          <div className="profile_name">
+                            <h4>
+                              <Skeleton width={200} height={20} />
+                              <span className="profile_username">
+                                <Skeleton width={100} height={15} />
+                              </span>
+                              <span id="wallet" className="profile_wallet">
+                                <Skeleton width={200} height={15} />
+                              </span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="profile_follow de-flex">
+                        <div className="de-flex-col">
+                          <Skeleton width={150} height={40} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="de_tab tab_simple"></div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="d_profile de-flex">
+                    <div className="de-flex-col">
+                      <div className="profile_avatar">
+                        <img src={author.authorImage} alt="" />
 
-                      <i className="fa fa-check"></i>
-                      <div className="profile_name">
-                        <h4>
-                          Monica Lucas
-                          <span className="profile_username">@monicaaaa</span>
-                          <span id="wallet" className="profile_wallet">
-                            UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
-                          </span>
-                          <button id="btn_copy" title="Copy Text">
-                            Copy
+                        <i className="fa fa-check"></i>
+                        <div className="profile_name">
+                          <h4>
+                            {author.authorName}
+                            <span className="profile_username">
+                              @{author.tag}
+                            </span>
+                            <span id="wallet" className="profile_wallet">
+                              {author.address}
+                            </span>
+                            <button id="btn_copy" title="Copy Text">
+                              Copy
+                            </button>
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="profile_follow de-flex">
+                      <div className="de-flex-col">
+                        <div className="profile_follower">
+                          {author.followers} followers
+                        </div>
+                        {followers < author.followers ? (
+                          <button
+                            className="btn-main"
+                            onClick={() => {
+                              author.followers += 1;
+                              setFollowers(author.followers + 1);
+                            }}
+                          >
+                            Follow
                           </button>
-                        </h4>
+                        ) : (
+                          <button
+                            className="btn-main"
+                            onClick={() => {
+                              author.followers -= 1;
+                              setFollowers(0);
+                            }}
+                          >
+                            Unfollow
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
-                  <div className="profile_follow de-flex">
-                    <div className="de-flex-col">
-                      <div className="profile_follower">573 followers</div>
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                )}
               </div>
-
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems />
+                  {loading ? (
+                    <div className="row">
+                      {new Array(8).fill().map((_, index) => (
+                        <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                          <Skeleton
+                            width={"100%"}
+                            height={400}
+                            borderRadius={15}
+                            key={index}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <AuthorItems
+                      nftCollection={author.nftCollection}
+                      authorImage={author.authorImage}
+                    />
+                  )}
                 </div>
               </div>
             </div>
