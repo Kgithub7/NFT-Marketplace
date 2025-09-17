@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-const Timer = () => {
+const Timer = ({expiryDate}) => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
-  let time = Math.floor(Math.random() * 21600);
+  let time = (expiryDate-Date.now())/1000
   const countdown = () => {
     if (time >= 0) {
       const seconds = Math.floor(time % 60);

@@ -86,8 +86,8 @@ const NewItems = () => {
                             />
                             <i className="fa fa-check"></i>
                           </Link>
-                      </div>
-                      <Timer />
+                        </div>
+                        <Timer expiryDate={newItem.expiryDate} />
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
@@ -106,7 +106,6 @@ const NewItems = () => {
                               </div>
                             </div>
                           </div>
-
                           <Link to={`/item-details/${newItem.nftId}`}>
                             <img
                               src={newItem.nftImage}
