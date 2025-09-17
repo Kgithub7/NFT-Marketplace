@@ -1,11 +1,10 @@
-import React from "react";
-
-const Skeleton = ({ width, height, borderRadius }) => {
+const Skeleton = ({ maxWidth, height, borderRadius }) => {
   return (
     <div
       className="skeleton-box"
       style={{
-        width,
+        width: "100%",
+        maxWidth,
         height,
         borderRadius,
       }}
