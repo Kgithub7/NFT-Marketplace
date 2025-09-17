@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import { useEffect } from "react";
 
 const Explore = () => {
   useEffect(() => {
@@ -28,7 +28,6 @@ const Explore = () => {
             </div>
           </div>
         </section>
-
         <section aria-label="section">
           <div className="container">
             <div className="row">
