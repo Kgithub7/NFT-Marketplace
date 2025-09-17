@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const AuthorItems = ({nftCollection,authorImage}) => {
+const AuthorItems = ({ nftCollection, authorImage }) => {
   return (
     <div className="de_tab_content">
       <div className="tab-1">
@@ -31,7 +31,7 @@ const AuthorItems = ({nftCollection,authorImage}) => {
                       </div>
                     </div>
                   </div>
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${nft.nftId}`}>
                     <img
                       src={nft.nftImage}
                       className="lazy nft__item_preview"
