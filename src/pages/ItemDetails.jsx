@@ -36,7 +36,6 @@ const ItemDetails = () => {
                   <div className="col-md-6">
                     <div className="item_info">
                       <Skeleton width={"50%"} height={40} />
-
                       <div className="item_info_counts">
                         <Skeleton width={80} height={30} borderRadius={3} />
                         <Skeleton width={80} height={30} borderRadius={3} />

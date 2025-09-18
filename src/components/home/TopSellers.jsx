@@ -20,7 +20,12 @@ const TopSellers = () => {
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
           <div className="col-lg-12">
             <div className="text-center">
               <h2>Top Sellers</h2>
@@ -33,7 +38,11 @@ const TopSellers = () => {
                 ? new Array(12).fill().map((_, index) => (
                     <li key={index}>
                       <div className="author_list_pp ">
-                        <Skeleton height={50} maxWidth={50} borderRadius={"50%"} />
+                        <Skeleton
+                          height={50}
+                          maxWidth={50}
+                          borderRadius={"50%"}
+                        />
                       </div>
                       <div className="author_list_info">
                         <Skeleton height={20} maxWidth={100} />
