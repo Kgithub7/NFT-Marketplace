@@ -27,17 +27,14 @@ const ExploreItems = () => {
           defaultValue=""
           onChange={(event) => {
             if (event.target.value == "price_low_to_high") {
-              setLoading(true);
               setUrl(
                 "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_low_to_high"
               );
             } else if (event.target.value == "price_high_to_low") {
-              setLoading(true);
               setUrl(
                 "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_high_to_low"
               );
             } else if (event.target.value == "likes_high_to_low") {
-              setLoading(true);
               setUrl(
                 "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=likes_high_to_low"
               );

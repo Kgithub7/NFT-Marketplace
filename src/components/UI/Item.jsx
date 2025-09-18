@@ -3,7 +3,13 @@ import Timer from "./Timer";
 
 function Item({ item }) {
   return (
-    <div className="nft__item">
+    <div
+      className="nft__item"
+      data-aos="fade-in"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+      data-aos-once="true"
+    >
       <div className="author_list_pp">
         <Link
           to={`/author/${item.authorId}`}
